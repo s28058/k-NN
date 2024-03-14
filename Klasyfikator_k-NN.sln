@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klasyfikator_k-NN", "Klasyfikator_k-NN\Klasyfikator_k-NN.csproj", "{9803306E-792A-4097-81EF-F424A3EF0503}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9803306E-792A-4097-81EF-F424A3EF0503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9803306E-792A-4097-81EF-F424A3EF0503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9803306E-792A-4097-81EF-F424A3EF0503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9803306E-792A-4097-81EF-F424A3EF0503}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
