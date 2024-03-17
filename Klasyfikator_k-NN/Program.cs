@@ -5,18 +5,13 @@ using Klasyfikator_k_NN;
 Console.WriteLine("Enter k:");
 int k = int.Parse(Console.ReadLine());
 
-// Console.WriteLine("Enter the train-set file path:");
-// string filePath = Console.ReadLine();
-// var trainingData = ReadFile(filePath);
+Console.WriteLine("Enter the train-set file path:");
+string fileName = Console.ReadLine();
+var trainingData = ReadFile(fileName);
 
-// Console.WriteLine("Enter the test-set file path:");
-// filePath = Console.ReadLine();
-// var testData = ReadFile(filePath);
-
-var trainingData = ReadFile("Data/trainSet.csv");
-var testData = ReadFile("Data/testSet.csv");
-
-Console.WriteLine("Training file loaded");
+Console.WriteLine("Enter the test-set file path:");
+fileName = Console.ReadLine();
+var testData = ReadFile(fileName);
 
 foreach (var testRecord in testData)
 {
