@@ -17,6 +17,13 @@ var testData = ReadFile("Data/testSet.csv");
 
 Console.WriteLine("Training file loaded");
 
+foreach (var testRecord in testData)
+{
+    CalculateDistance(testRecord, trainingData);
+    FindLabel(k, testRecord, trainingData);
+    Console.WriteLine(testRecord.Values + " " + testRecord.Label + " " + testRecord.CalculatedLabel);
+}
+
 static List<Data> ReadFile(string fileName)
 {
     var lines = File.ReadLines(fileName);
@@ -47,11 +54,12 @@ static void CalculateDistance(Data testRecord, List<Data> trainingData)
         
         trainingRecord.Distance = Math.Sqrt(sum);
     }
-    trainingData.Sort();
 }
 
 static void FindLabel(int k, Data testRecord, List<Data> trainingData)
 {
+    trainingData.Sort();
+    
     string[] labels = new string[k];
 
     for (int i = 0; i < labels.Length; i++)
