@@ -21,7 +21,8 @@ foreach (var testRecord in testData)
 {
     CalculateDistance(testRecord, trainingData);
     FindLabel(k, testRecord, trainingData);
-    Console.WriteLine(testRecord.Values + " " + testRecord.Label + " " + testRecord.CalculatedLabel);
+    testRecord.Values.ToList().ForEach(i => Console.Write(i.ToString() + "; "));
+    Console.WriteLine(" " + testRecord.Label + " " + testRecord.CalculatedLabel);
 }
 
 static List<Data> ReadFile(string fileName)
