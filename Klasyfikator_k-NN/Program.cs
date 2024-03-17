@@ -25,6 +25,8 @@ foreach (var testRecord in testData)
     Console.WriteLine(" " + testRecord.Label + " " + testRecord.CalculatedLabel);
 }
 
+Console.WriteLine(String.Format("Accouracy: {0:P2}.", CalculateAccuracy(testData)));
+
 static List<Data> ReadFile(string fileName)
 {
     var lines = File.ReadLines(fileName);
@@ -93,3 +95,16 @@ static string FindMostFrequentElement(string[] array)
     return mostFrequentElement;
 }
 
+static double CalculateAccuracy(List<Data> testData)
+{
+    double correct = 0;
+    foreach (var record in testData)
+    {
+        if (record.Label == record.CalculatedLabel)
+        {
+            correct++;
+        }
+    }
+
+    return correct / testData.Count;
+}
