@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Runtime.CompilerServices;
 using Klasyfikator_k_NN;
 
 Console.WriteLine("Enter k:");
@@ -26,6 +27,26 @@ foreach (var testRecord in testData)
 }
 
 Console.WriteLine(String.Format("Accouracy: {0:P2}.", CalculateAccuracy(testData)));
+
+while (true)
+{
+    Console.WriteLine("Enter values to classificate or write \"quit\" to exit (Use \";\" to separate values)");
+    string message = Console.ReadLine();
+    if (message == "quit")
+    {
+        System.Environment.Exit(1);
+    }
+
+    var elements = message.Split(";"); 
+    var values = elements
+        .Select(v => double.Parse(v, CultureInfo.InvariantCulture))
+        .ToArray();
+    Data data = new Data() { Values = values};
+    CalculateDistance(data, trainingData);
+    FindLabel(k, data, trainingData);
+    data.Values.ToList().ForEach(i => Console.Write(i.ToString() + "; "));
+    Console.WriteLine(" " + data.CalculatedLabel);
+}
 
 static List<Data> ReadFile(string fileName)
 {
