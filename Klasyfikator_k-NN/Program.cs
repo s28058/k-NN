@@ -34,3 +34,17 @@ static List<Data> ReadFile(string fileName)
 
     return result;
 }
+
+static void CalculateDistance(Data testRecord, List<Data> trainingData)
+{
+    foreach (var trainingRecord in trainingData)
+    {
+        double sum = 0;
+        for (int i = 0; i < trainingRecord.Values.Length; i++)
+        {
+            sum += Math.Pow(trainingRecord.Values[i] - testRecord.Values[i], 2);
+        }
+        
+        trainingRecord.Distance = Math.Sqrt(sum);
+    }
+}
