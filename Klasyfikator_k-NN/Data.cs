@@ -4,8 +4,8 @@ public class Data : IComparable<Data>
 {
     public double[] Values { get; set; }
     public string Label { get; set; }
-    
     public double Distance { get; set; }
+    public string CalculatedLabel { get; set; }
 
     public int CompareTo(Data? other)
     {

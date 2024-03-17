@@ -50,3 +50,37 @@ static void CalculateDistance(Data testRecord, List<Data> trainingData)
     trainingData.Sort();
 }
 
+static void FindLabel(int k, Data testRecord, List<Data> trainingData)
+{
+    string[] labels = new string[k];
+
+    for (int i = 0; i < labels.Length; i++)
+    {
+        labels[i] = trainingData[i].Label;
+    }
+
+    testRecord.CalculatedLabel = FindMostFrequentElement(labels);
+}
+
+static string FindMostFrequentElement(string[] array)
+{
+    Dictionary<string, int> frequencyMap = new Dictionary<string, int>();
+
+    foreach (string element in array)
+    {
+        if (frequencyMap.ContainsKey(element))
+        {
+            frequencyMap[element]++;
+        }
+        else
+        {
+            frequencyMap[element] = 1;
+        }
+    }
+
+    int maxFrequency = frequencyMap.Max(pair => pair.Value);
+    string mostFrequentElement = frequencyMap.First(pair => pair.Value == maxFrequency).Key;
+
+    return mostFrequentElement;
+}
+
