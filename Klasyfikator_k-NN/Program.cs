@@ -47,4 +47,6 @@ static void CalculateDistance(Data testRecord, List<Data> trainingData)
         
         trainingRecord.Distance = Math.Sqrt(sum);
     }
+    trainingData.Sort();
 }
+
