@@ -16,7 +16,7 @@ var testData = ReadFile(fileName);
 foreach (var testRecord in testData)
 {
     CalculateDistance(testRecord, trainingData);
-    FindLabel(k, testRecord, trainingData);
+    FindAndAssignLabel(k, testRecord, trainingData);
     testRecord.Values.ToList().ForEach(i => Console.Write(i.ToString() + "; "));
     Console.WriteLine(" " + testRecord.Label + " " + testRecord.CalculatedLabel);
 }
@@ -29,7 +29,7 @@ while (true)
     string message = Console.ReadLine();
     if (message == "quit")
     {
-        System.Environment.Exit(1);
+        System.Environment.Exit(0);
     }
 
     var elements = message.Split(";"); 
@@ -38,7 +38,7 @@ while (true)
         .ToArray();
     Data data = new Data() { Values = values};
     CalculateDistance(data, trainingData);
-    FindLabel(k, data, trainingData);
+    FindAndAssignLabel(k, data, trainingData);
     data.Values.ToList().ForEach(i => Console.Write(i.ToString() + "; "));
     Console.WriteLine(" " + data.CalculatedLabel);
 }
@@ -75,7 +75,7 @@ static void CalculateDistance(Data testRecord, List<Data> trainingData)
     }
 }
 
-static void FindLabel(int k, Data testRecord, List<Data> trainingData)
+static void FindAndAssignLabel(int k, Data testRecord, List<Data> trainingData)
 {
     trainingData.Sort();
     
